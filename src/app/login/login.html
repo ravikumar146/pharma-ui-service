@@ -1,0 +1,30 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" />
+
+<main class="auth-page">
+    <section class="auth-card">
+        <img class="auth-mark" src="/medicare-logo.svg" alt="" aria-hidden="true" />
+        <span class="eyebrow">Welcome back</span>
+        <h1>Sign in to Medicare+</h1>
+        <p class="auth-intro">Access your orders, prescriptions, and healthcare services.</p>
+
+        @if (submitted) {
+        <p class="success-message" role="status">Sign-in request submitted.</p>
+        }
+
+        <form #loginForm="ngForm" (ngSubmit)="submit()">
+            <label for="login-email">Email address</label>
+            <input id="login-email" name="email" type="email" [(ngModel)]="email" required autocomplete="email"
+                placeholder="you@example.com" />
+
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" [(ngModel)]="password" required
+                autocomplete="current-password" placeholder="Enter your password" />
+
+            <button type="submit" [disabled]="loginForm.invalid">Sign in <span>→</span></button>
+        </form>
+
+        <p class="auth-switch">New to Medicare+? <a routerLink="/signup">Create an account</a></p>
+    </section>
+</main>
+
+<app-footer />

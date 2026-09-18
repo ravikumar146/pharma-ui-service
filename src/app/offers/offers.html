@@ -1,0 +1,54 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" [cartCount]="cartService.itemCount()" />
+
+<main class="offers-page">
+    <header class="offers-hero">
+        <span class="eyebrow">Better care, better value</span>
+        <h1>Offers made for your wellbeing</h1>
+        <p>Use a coupon on your next order and make everyday healthcare a little more affordable.</p>
+    </header>
+
+    @if (isLoading) {
+    <section class="offers-state" aria-live="polite">
+        <span class="loader" aria-hidden="true"></span>
+        <p>Loading available offers...</p>
+    </section>
+    } @else if (coupons.length === 0) {
+    <section class="offers-state">
+        <div class="state-icon">✦</div>
+        <h2>No offers available right now</h2>
+        <p>Check back soon for new Medicare+ savings.</p>
+    </section>
+    } @else {
+    <section class="offers-list" aria-labelledby="offers-heading">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">Available now</span>
+                <h2 id="offers-heading">Choose your saving</h2>
+            </div>
+            <span class="offer-count">{{ coupons.length }} offers</span>
+        </div>
+
+        <div class="coupon-grid">
+            @for (coupon of coupons; track coupon.code) {
+            <article class="offer-card">
+                <div class="offer-topline">
+                    <span class="offer-icon">%</span>
+                    <span class="offer-badge">{{ discountLabel(coupon) }}</span>
+                </div>
+                <h3>{{ coupon.title }}</h3>
+                <p>{{ coupon.description }}</p>
+                <div class="coupon-code">
+                    <code>{{ coupon.code }}</code>
+                    <button type="button" (click)="copyCoupon(coupon.code)">
+                        {{ copiedCode === coupon.code ? 'Copied' : 'Copy code' }}
+                    </button>
+                </div>
+                <span class="minimum-order">Valid on orders above ₹{{ coupon.minimumOrder | number }}</span>
+            </article>
+            }
+        </div>
+    </section>
+    }
+</main>
+
+<app-footer />

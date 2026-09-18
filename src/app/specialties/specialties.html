@@ -1,0 +1,70 @@
+<section class="care-overview" aria-labelledby="specialties-heading">
+    <div class="section-heading">
+        <span class="section-kicker">{{ specialtiesKicker }}</span>
+        <h2 id="specialties-heading">{{ specialtiesTitle }}</h2>
+        <p>{{ specialtiesDescription }}</p>
+    </div>
+
+    <div class="specialty-carousel-shell">
+        <div class="specialty-grid" #specialtyTrack (scroll)="updateScrollState()">
+            @for (specialty of specialties; track specialty.name) {
+            <article class="specialty-card">
+                <div class="specialty-icon">{{ specialty.icon }}</div>
+                <div class="doctor-count">{{ specialty.doctors }} doctors available</div>
+                <h3>{{ specialty.name }}</h3>
+                <p>{{ specialty.description }}</p>
+                <span class="specialty-focus">{{ specialty.focus }}</span>
+                <button type="button" class="consult-button" (click)="bookConsultation(specialty)">
+                    Book consultation
+                </button>
+            </article>
+            }
+        </div>
+
+        <div class="carousel-controls" aria-label="Specialty carousel controls">
+            <button type="button" (click)="scrollSpecialties('previous')" [disabled]="!canScrollPrevious"
+                aria-label="Show previous specialties">
+                <span aria-hidden="true">←</span> Previous
+            </button>
+            <span class="swipe-hint">Swipe or use the arrows to explore</span>
+            <button type="button" (click)="scrollSpecialties('next')" [disabled]="!canScrollNext"
+                aria-label="Show more specialties">
+                Next <span aria-hidden="true">→</span>
+            </button>
+        </div>
+    </div>
+
+    @if (selectedSpecialty) {
+    <p class="consultation-note" role="status">
+        Consultation request started for <strong>{{ selectedSpecialty }}</strong>.
+    </p>
+    }
+</section>
+
+<section class="services-section" aria-labelledby="services-heading">
+    <div class="section-heading">
+        <span class="section-kicker">{{ servicesKicker }}</span>
+        <h2 id="services-heading">{{ servicesTitle }}</h2>
+    </div>
+
+    <div class="service-grid">
+        @for (service of services; track service.name) {
+        <article class="service-card">
+            <div class="service-icon">{{ service.icon }}</div>
+            <div>
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.description }}</p>
+            </div>
+            <button type="button" class="service-action" (click)="startService(service)">
+                {{ service.action }} <span>→</span>
+            </button>
+        </article>
+        }
+    </div>
+
+    @if (selectedService) {
+    <p class="consultation-note" role="status">
+        <strong>{{ selectedService }}</strong> selected. We will guide you through the next step.
+    </p>
+    }
+</section>

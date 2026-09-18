@@ -1,0 +1,38 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" />
+
+<main class="auth-page">
+    <section class="auth-card">
+        <img class="auth-mark" src="/medicare-logo.svg" alt="" aria-hidden="true" />
+        <span class="eyebrow">Join your care community</span>
+        <h1>Create your Medicare+ account</h1>
+        <p class="auth-intro">Save your preferences and keep your healthcare journey in one place.</p>
+
+        @if (submitted) {
+        <p class="success-message" role="status">Account creation request submitted.</p>
+        }
+
+        <form #signupForm="ngForm" (ngSubmit)="submit()">
+            <label for="signup-name">Full name</label>
+            <input id="signup-name" name="name" type="text" [(ngModel)]="name" required autocomplete="name"
+                placeholder="Your full name" />
+
+            <label for="signup-mobile">Mobile number</label>
+            <input id="signup-mobile" name="mobileNumber" type="tel" [(ngModel)]="mobileNumber" required
+                pattern="[0-9]{10}" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile number" />
+
+            <label for="signup-email">Email address</label>
+            <input id="signup-email" name="email" type="email" [(ngModel)]="email" required autocomplete="email"
+                placeholder="you@example.com" />
+
+            <label for="signup-password">Password</label>
+            <input id="signup-password" name="password" type="password" [(ngModel)]="password" required minlength="8"
+                autocomplete="new-password" placeholder="At least 8 characters" />
+
+            <button type="submit" [disabled]="signupForm.invalid">Create account <span>→</span></button>
+        </form>
+
+        <p class="auth-switch">Already have an account? <a routerLink="/login">Sign in</a></p>
+    </section>
+</main>
+
+<app-footer />

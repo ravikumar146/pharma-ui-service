@@ -1,0 +1,118 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" [cartCount]="cartService.itemCount()" />
+
+<main class="payment-page">
+    <div class="payment-heading">
+        <a routerLink="/cart" class="back-link">← Back to cart</a>
+        <span class="eyebrow">Secure checkout</span>
+        <h1>Choose how you want to pay</h1>
+        <p>Your payment details are encrypted and protected.</p>
+    </div>
+
+    @if (paymentSubmitted) {
+    <section class="payment-success" role="status">
+        <span class="success-icon">✓</span>
+        <div>
+            <h2>Payment request received</h2>
+            <p>We will confirm your order after payment verification.</p>
+        </div>
+    </section>
+    } @else {
+    <div class="payment-layout">
+        <section class="payment-card" aria-labelledby="payment-method-heading">
+            <div class="card-heading">
+                <div>
+                    <span class="eyebrow">Payment methods</span>
+                    <h2 id="payment-method-heading">Select an option</h2>
+                </div>
+                <span class="secure-label">🔒 Secure</span>
+            </div>
+
+            <div class="method-grid">
+                <button type="button" [class.selected]="selectedMethod === 'card'" (click)="selectMethod('card')">
+                    <span class="method-icon">▣</span><strong>Cards</strong><small>Credit / Debit</small>
+                </button>
+                <button type="button" [class.selected]="selectedMethod === 'upi'" (click)="selectMethod('upi')">
+                    <span class="method-icon">◉</span><strong>UPI</strong><small>GPay, PhonePe</small>
+                </button>
+                <button type="button" [class.selected]="selectedMethod === 'netbanking'"
+                    (click)="selectMethod('netbanking')">
+                    <span class="method-icon">⌂</span><strong>Net banking</strong><small>All major banks</small>
+                </button>
+                <button type="button" [class.selected]="selectedMethod === 'wallet'" (click)="selectMethod('wallet')">
+                    <span class="method-icon">▤</span><strong>Wallets</strong><small>Paytm, wallets</small>
+                </button>
+                <button type="button" [class.selected]="selectedMethod === 'cod'" (click)="selectMethod('cod')">
+                    <span class="method-icon">₹</span><strong>Cash on delivery</strong><small>Pay when delivered</small>
+                </button>
+            </div>
+
+            <form #paymentForm="ngForm" (ngSubmit)="completePayment()">
+                @if (selectedMethod === 'card') {
+                <div class="form-grid">
+                    <label class="full-width">Card number
+                        <input name="cardNumber" type="text" [(ngModel)]="cardNumber" required minlength="12"
+                            inputmode="numeric" placeholder="1234 5678 9012 3456" />
+                    </label>
+                    <label>Cardholder name
+                        <input name="cardName" type="text" [(ngModel)]="cardName" required placeholder="Name on card" />
+                    </label>
+                    <label>Expiry
+                        <input name="expiry" type="text" [(ngModel)]="expiry" required placeholder="MM / YY" />
+                    </label>
+                    <label>CVV
+                        <input name="cvv" type="password" [(ngModel)]="cvv" required minlength="3" maxlength="4"
+                            inputmode="numeric" placeholder="•••" />
+                    </label>
+                </div>
+                } @else if (selectedMethod === 'upi') {
+                <label>UPI ID
+                    <input name="upiId" type="text" [(ngModel)]="upiId" required placeholder="yourname@upi" />
+                </label>
+                } @else if (selectedMethod === 'netbanking') {
+                <label>Select your bank
+                    <select name="bank" [(ngModel)]="bank" required>
+                        <option value="" disabled>Choose a bank</option>
+                        <option>State Bank of India</option>
+                        <option>HDFC Bank</option>
+                        <option>ICICI Bank</option>
+                        <option>Axis Bank</option>
+                    </select>
+                </label>
+                } @else if (selectedMethod === 'wallet') {
+                <label>Select your wallet
+                    <select name="wallet" [(ngModel)]="wallet" required>
+                        <option value="" disabled>Choose a wallet</option>
+                        <option>Paytm</option>
+                        <option>Amazon Pay</option>
+                        <option>Mobikwik</option>
+                    </select>
+                </label>
+                } @else {
+                <div class="cod-note">Pay safely in cash when your medicines arrive at your doorstep.</div>
+                }
+
+                <button class="pay-button" type="submit" [disabled]="selectedMethod !== 'cod' && paymentForm.invalid">
+                    {{ selectedMethod === 'cod' ? 'Place order' : 'Pay securely' }}
+                    <span>₹{{ cartService.payableTotal() | number }} →</span>
+                </button>
+            </form>
+        </section>
+
+        <aside class="order-card">
+            <span class="eyebrow">Order total</span>
+            <h2>Summary</h2>
+            <div class="order-row"><span>Items</span><strong>{{ cartService.itemCount() }}</strong></div>
+            <div class="order-row"><span>Subtotal</span><strong>₹{{ cartService.total() | number }}</strong></div>
+            @if (cartService.discountAmount() > 0) {
+            <div class="order-row savings"><span>Coupon savings</span><strong>-₹{{ cartService.discountAmount() | number
+                    }}</strong></div>
+            }
+            <div class="order-total"><span>Total to pay</span><strong>₹{{ cartService.payableTotal() | number
+                    }}</strong></div>
+            <p>Free delivery included</p>
+        </aside>
+    </div>
+    }
+</main>
+
+<app-footer />

@@ -1,0 +1,110 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" [cartCount]="cartService.itemCount()" />
+
+<main class="cart-page">
+    <div class="cart-intro">
+        <span class="eyebrow">Your selection</span>
+        <h1>Shopping cart</h1>
+        <p>Review your essentials and unlock available savings before checkout.</p>
+    </div>
+
+    @if (cartService.items().length === 0) {
+    <section class="empty-cart">
+        <div class="empty-icon">🛒</div>
+        <h2>Your cart is empty</h2>
+        <p>Add products from the catalog to see them here.</p>
+        <a class="browse-button" routerLink="/products">Browse products</a>
+    </section>
+    } @else {
+    <div class="cart-layout">
+        <section class="cart-card" aria-labelledby="cart-items-heading">
+            <div class="card-heading">
+                <div>
+                    <span class="eyebrow">Ready when you are</span>
+                    <h2 id="cart-items-heading">Your items</h2>
+                </div>
+                <span class="item-count">{{ cartService.itemCount() }} items</span>
+            </div>
+
+            <div class="cart-list">
+                @for (item of cartService.items(); track item.product.name) {
+                <article class="cart-item">
+                    <div class="cart-product-image" [ngClass]="item.product.color">{{ item.product.icon }}</div>
+                    <div class="cart-product-details">
+                        <h3>{{ item.product.name }}</h3>
+                        <p>{{ item.product.description }}</p>
+                        <div class="item-meta">
+                            <span>₹{{ item.product.price | number }} each</span>
+                            <div class="quantity-control" aria-label="Quantity controls">
+                                <button type="button" (click)="removeItem(item.product.name)"
+                                    aria-label="Decrease quantity">−</button>
+                                <span>{{ item.quantity }}</span>
+                                <button type="button" (click)="addItem(item.product.name)"
+                                    aria-label="Increase quantity">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-total">
+                        <strong>₹{{ item.product.price * item.quantity | number }}</strong>
+                        <button class="remove" type="button" (click)="removeItem(item.product.name)">Remove</button>
+                    </div>
+                </article>
+                }
+            </div>
+        </section>
+
+        <aside class="checkout-column">
+            @if (coupons.length > 0) {
+            <section class="offers-card" aria-labelledby="offers-heading">
+                <div class="card-heading compact">
+                    <div>
+                        <span class="eyebrow">Extra savings</span>
+                        <h2 id="offers-heading">Offers for you</h2>
+                    </div>
+                    <span class="offer-badge">{{ coupons.length }} deals</span>
+                </div>
+
+                <div class="coupon-list">
+                    @for (coupon of coupons; track coupon.code) {
+                    <button type="button" class="coupon-card" [class.applied]="appliedCoupon?.code === coupon.code"
+                        (click)="applyCoupon(coupon)">
+                        <span class="coupon-icon">%</span>
+                        <span class="coupon-copy">
+                            <strong>{{ coupon.code }}</strong>
+                            <span>{{ coupon.title }}</span>
+                            <small>{{ coupon.description }}</small>
+                        </span>
+                        <span class="coupon-arrow">→</span>
+                    </button>
+                    }
+                </div>
+
+                <div class="coupon-entry">
+                    <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code"
+                        aria-label="Coupon code" />
+                    <button type="button" (click)="applyCoupon()">Apply</button>
+                </div>
+
+                @if (couponMessage) {
+                <p class="coupon-message" [class.error]="couponError" role="status">{{ couponMessage }}</p>
+                }
+            </section>
+            }
+
+            <section class="summary-card" aria-labelledby="summary-heading">
+                <h2 id="summary-heading">Order summary</h2>
+                <div class="summary-row"><span>Subtotal</span><strong>₹{{ cartService.total() | number }}</strong></div>
+                @if (discountAmount > 0) {
+                <div class="summary-row discount-row"><span>Discount</span><strong>-₹{{ discountAmount | number
+                        }}</strong></div>
+                }
+                <div class="summary-row delivery-row"><span>Delivery</span><strong>Free</strong></div>
+                <div class="summary-total"><span>Total to pay</span><strong>₹{{ payableTotal | number }}</strong></div>
+                <a class="checkout-button" routerLink="/payment">Proceed to checkout <span>→</span></a>
+                <p class="secure-note">🔒 Secure checkout · No hidden fees</p>
+            </section>
+        </aside>
+    </div>
+    }
+</main>
+
+<app-footer />

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Medicare plus logo</title>
+  <desc id="desc">A teal medical cross with a simple care leaf mark</desc>
+  <rect width="96" height="96" rx="26" fill="#08a88a"/>
+  <path d="M48 23v50M23 48h50" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M65 63c8-8 12-17 10-27-10 0-19 5-25 14 5 1 10 5 15 13Z" fill="#9af1d8"/>
+</svg>

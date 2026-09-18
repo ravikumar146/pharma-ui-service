@@ -1,0 +1,30 @@
+<nav class="topbar" aria-label="Main navigation">
+    <a class="brand" routerLink="/" aria-label="Go to Medicare home">
+        <img class="brand-mark" src="/medicare-logo.svg" alt="" aria-hidden="true" />
+        <span class="brand-copy">
+            <span class="logo">{{ brandName }}</span>
+            <small>care, simplified</small>
+        </span>
+    </a>
+
+    <ul class="nav-links">
+        @for (link of navigationLinks; track link) {
+        <li>
+            <a [routerLink]="routeFor(link)">{{ link }}</a>
+        </li>
+        }
+    </ul>
+
+    <div class="header-actions">
+        <div class="auth-links">
+            <a routerLink="/login">Sign in</a>
+            <a class="signup-link" routerLink="/signup">Sign up</a>
+        </div>
+
+        <a class="cart-btn" routerLink="/cart" aria-label="Open shopping cart">
+            <span class="cart-icon" aria-hidden="true">🛒</span>
+            <span>Cart</span>
+            <span class="cart-count">{{ cartCount }}</span>
+        </a>
+    </div>
+</nav>

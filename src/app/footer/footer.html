@@ -1,0 +1,33 @@
+<footer>
+    <div class="footer-main">
+        <div class="footer-brand">
+            <a class="brand" routerLink="/" aria-label="Go to Medicare home">
+                <img class="brand-mark" src="/medicare-logo.svg" alt="" aria-hidden="true" />
+                <span>
+                    <strong>Medicare+</strong>
+                    <small>care, simplified</small>
+                </span>
+            </a>
+            <p>Trusted healthcare, delivered with a little more care.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Explore</h3>
+            @for (link of quickLinks; track link.label) {
+            <a [routerLink]="link.route">{{ link.label }}</a>
+            }
+        </div>
+
+        <div class="footer-column">
+            <h3>Need help?</h3>
+            <a href="mailto:care@medicare.plus">care@medicare.plus</a>
+            <a href="tel:+18001234567">1800 123 4567</a>
+            <span>Available every day, 8am–8pm</span>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Medicare Pharmacy</span>
+        <span>Your health, our priority.</span>
+    </div>
+</footer>

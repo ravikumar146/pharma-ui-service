@@ -1,0 +1,119 @@
+{
+    "specialtiesKicker": "Expert care, made simple",
+    "specialtiesTitle": "Top Specialties",
+    "specialtiesDescription": "Connect with trusted doctors for care that fits your needs.",
+    "servicesKicker": "More ways to care for your health",
+    "servicesTitle": "Healthcare Services",
+    "specialties": [
+        {
+            "name": "Dermatology",
+            "description": "Specialists for skin and hair treatments.",
+            "focus": "Acne, hair fall, dandruff",
+            "icon": "🧴",
+            "doctors": 18
+        },
+        {
+            "name": "General Physician",
+            "description": "Care for common illnesses and acute conditions.",
+            "focus": "Fever, infections, migraine",
+            "icon": "🩺",
+            "doctors": 24
+        },
+        {
+            "name": "Paediatrics",
+            "description": "Trusted care for infants, children, and teens.",
+            "focus": "Nutrition, growth, immunity",
+            "icon": "🧸",
+            "doctors": 16
+        },
+        {
+            "name": "Cardiology",
+            "description": "Specialist support for heart health and prevention.",
+            "focus": "Heart health, blood pressure",
+            "icon": "❤️",
+            "doctors": 12
+        },
+        {
+            "name": "Orthopaedics",
+            "description": "Expert care for bones, joints, and movement.",
+            "focus": "Back pain, arthritis, sports injuries",
+            "icon": "🦴",
+            "doctors": 14
+        },
+        {
+            "name": "Neurology",
+            "description": "Specialist diagnosis and support for nervous system health.",
+            "focus": "Headaches, seizures, sleep health",
+            "icon": "🧠",
+            "doctors": 10
+        },
+        {
+            "name": "Gynaecology",
+            "description": "Compassionate care across every stage of women's health.",
+            "focus": "Hormonal health, cycles, fertility",
+            "icon": "🌷",
+            "doctors": 15
+        },
+        {
+            "name": "ENT",
+            "description": "Care for ear, nose, throat, and breathing concerns.",
+            "focus": "Allergies, sinus, hearing",
+            "icon": "👂",
+            "doctors": 9
+        },
+        {
+            "name": "Ophthalmology",
+            "description": "Complete eye care from checkups to treatment plans.",
+            "focus": "Vision, dry eyes, eye health",
+            "icon": "👁️",
+            "doctors": 11
+        },
+        {
+            "name": "Psychiatry",
+            "description": "Professional support for mental and emotional wellbeing.",
+            "focus": "Stress, anxiety, sleep support",
+            "icon": "🧘",
+            "doctors": 8
+        },
+        {
+            "name": "Dentistry",
+            "description": "Personalised dental care for a healthier smile.",
+            "focus": "Cleaning, cavities, gum care",
+            "icon": "🦷",
+            "doctors": 13
+        },
+        {
+            "name": "Nutrition",
+            "description": "Build practical food plans around your health goals.",
+            "focus": "Weight, lifestyle, recovery",
+            "icon": "🥗",
+            "doctors": 7
+        }
+    ],
+    "services": [
+        {
+            "name": "Video Consultation",
+            "description": "Talk to a qualified doctor from home.",
+            "icon": "💻",
+            "action": "Start consultation"
+        },
+        {
+            "name": "Lab Tests at Home",
+            "description": "Book trusted diagnostic tests with home collection.",
+            "icon": "🧪",
+            "action": "Book a test"
+        },
+        {
+            "name": "Medicine Delivery",
+            "description": "Get your prescriptions delivered to your doorstep.",
+            "icon": "🚚",
+            "action": "Order medicines"
+        },
+        {
+            "name": "Health Records",
+            "description": "Keep consultations and reports together in one place.",
+            "icon": "📋",
+            "action": "View records"
+        }
+    ]
+}

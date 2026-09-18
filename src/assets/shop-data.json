@@ -1,0 +1,395 @@
+{
+    "categories": [
+        {
+            "name": "Medicines",
+            "icon": "💊"
+        },
+        {
+            "name": "Wellness",
+            "icon": "🌿"
+        },
+        {
+            "name": "Personal Care",
+            "icon": "🧴"
+        },
+        {
+            "name": "Health Devices",
+            "icon": "🩺"
+        },
+        {
+            "name": "First Aid",
+            "icon": "🩹"
+        },
+        {
+            "name": "Baby Care",
+            "icon": "👶"
+        },
+        {
+            "name": "Nutrition & Supplements",
+            "icon": "🥗"
+        },
+        {
+            "name": "Oral Care",
+            "icon": "🦷"
+        },
+        {
+            "name": "Diabetes Care",
+            "icon": "🩸"
+        },
+        {
+            "name": "Women's Health",
+            "icon": "🌸"
+        },
+        {
+            "name": "Men's Health",
+            "icon": "🧔"
+        },
+        {
+            "name": "Surgical Supplies",
+            "icon": "🧤"
+        }
+    ],
+    "products": [
+        {
+            "name": "Daily Multivitamins",
+            "description": "Daily wellness supplement",
+            "price": 299,
+            "discount": 20,
+            "rating": "★★★★★",
+            "icon": "💊",
+            "color": "green-bg",
+            "category": "Wellness"
+        },
+        {
+            "name": "Moisturizing Lotion",
+            "description": "Gentle daily skin care",
+            "price": 249,
+            "rating": "★★★★☆",
+            "icon": "🧴",
+            "color": "yellow-bg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Digital Thermometer",
+            "description": "Fast and easy temperature reading",
+            "price": 399,
+            "discount": 15,
+            "rating": "★★★★★",
+            "icon": "🌡️",
+            "color": "blue-bg",
+            "category": "Health Devices"
+        },
+        {
+            "name": "Blood Pressure Monitor",
+            "description": "Digital home monitoring device",
+            "price": 1499,
+            "rating": "★★★★☆",
+            "icon": "🩺",
+            "color": "purple-bg",
+            "category": "Health Devices"
+        },
+        {
+            "name": "First Aid Kit",
+            "description": "Home emergency essentials",
+            "price": 549,
+            "discount": 10,
+            "rating": "★★★★★",
+            "icon": "🩹",
+            "color": "pink-bg",
+            "category": "First Aid"
+        },
+        {
+            "name": "Wellness Essentials",
+            "description": "Everyday health & wellness",
+            "price": 449,
+            "rating": "★★★★☆",
+            "icon": "🌿",
+            "color": "orange-bg",
+            "category": "Wellness"
+        },
+        {
+            "name": "Complete Nutrition Shake",
+            "description": "Balanced protein and vitamin supplement",
+            "price": 699,
+            "discount": 10,
+            "rating": "★★★★★",
+            "icon": "🥗",
+            "color": "green-bg",
+            "category": "Nutrition & Supplements"
+        },
+        {
+            "name": "FreshMint Dental Care Kit",
+            "description": "Complete brushing and flossing essentials",
+            "price": 199,
+            "rating": "★★★★☆",
+            "icon": "🦷",
+            "color": "blue-bg",
+            "category": "Oral Care"
+        },
+        {
+            "name": "Glucose Monitoring Kit",
+            "description": "Accurate blood sugar testing at home",
+            "price": 899,
+            "discount": 15,
+            "rating": "★★★★★",
+            "icon": "🩸",
+            "color": "pink-bg",
+            "category": "Diabetes Care"
+        },
+        {
+            "name": "Women's Daily Wellness Pack",
+            "description": "Daily vitamins designed for women's wellness",
+            "price": 549,
+            "rating": "★★★★☆",
+            "icon": "🌸",
+            "color": "yellow-bg",
+            "category": "Women's Health"
+        },
+        {
+            "name": "Men's Vitality Capsules",
+            "description": "Daily nutritional support for men's health",
+            "price": 599,
+            "discount": 10,
+            "rating": "★★★★☆",
+            "icon": "🧔",
+            "color": "purple-bg",
+            "category": "Men's Health"
+        },
+        {
+            "name": "Sterile Dressing Pack",
+            "description": "Sterile gauze, tape, and wound care supplies",
+            "price": 349,
+            "rating": "★★★★★",
+            "icon": "🧤",
+            "color": "orange-bg",
+            "category": "Surgical Supplies"
+        },
+        {
+            "name": "Allergy Relief Tablets",
+            "description": "Non-drowsy seasonal allergy relief",
+            "price": 129,
+            "discount": 5,
+            "rating": "★★★★☆",
+            "icon": "💊",
+            "color": "blue-bg",
+            "category": "Medicines"
+        },
+        {
+            "name": "Kids Fever Relief Syrup",
+            "description": "Gentle fever support for children",
+            "price": 179,
+            "rating": "★★★★☆",
+            "icon": "🧸",
+            "color": "yellow-bg",
+            "category": "Baby Care"
+        },
+        {
+            "name": "Immune Support Gummies",
+            "description": "Fruit-flavored vitamin gummies for daily support",
+            "price": 399,
+            "discount": 10,
+            "rating": "★★★★★",
+            "icon": "🍊",
+            "color": "orange-bg",
+            "category": "Wellness"
+        },
+        {
+            "name": "Aloe Face Wash",
+            "description": "Gentle cleanser for fresh, hydrated skin",
+            "price": 219,
+            "rating": "★★★★☆",
+            "icon": "🫧",
+            "color": "green-bg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Pulse Oximeter",
+            "description": "Compact fingertip oxygen and pulse monitor",
+            "price": 799,
+            "discount": 12,
+            "rating": "★★★★★",
+            "icon": "📟",
+            "color": "purple-bg",
+            "category": "Health Devices"
+        },
+        {
+            "name": "Antiseptic Wound Spray",
+            "description": "Quick-clean spray for minor cuts and scrapes",
+            "price": 159,
+            "rating": "★★★★☆",
+            "icon": "🩹",
+            "color": "pink-bg",
+            "category": "First Aid"
+        },
+        {
+            "name": "Omega 3 Softgels",
+            "description": "Daily fish oil supplement for heart and brain health",
+            "price": 499,
+            "discount": 15,
+            "rating": "★★★★★",
+            "icon": "🐟",
+            "color": "blue-bg",
+            "category": "Nutrition & Supplements"
+        },
+        {
+            "name": "Sensitive Teeth Toothpaste",
+            "description": "Enamel-friendly toothpaste for sensitive teeth",
+            "price": 149,
+            "rating": "★★★★☆",
+            "icon": "🪥",
+            "color": "green-bg",
+            "category": "Oral Care"
+        },
+        {
+            "name": "Diabetic Care Foot Cream",
+            "description": "Moisturizing foot care for dry diabetic skin",
+            "price": 289,
+            "rating": "★★★★☆",
+            "icon": "🦶",
+            "color": "yellow-bg",
+            "category": "Diabetes Care"
+        },
+        {
+            "name": "Prenatal Vitamin Tablets",
+            "description": "Essential prenatal vitamins with iron and folic acid",
+            "price": 459,
+            "discount": 8,
+            "rating": "★★★★★",
+            "icon": "🌷",
+            "color": "pink-bg",
+            "category": "Women's Health"
+        },
+        {
+            "name": "Men's Daily Multivitamin",
+            "description": "Complete daily vitamin and mineral support",
+            "price": 429,
+            "rating": "★★★★☆",
+            "icon": "⚡",
+            "color": "orange-bg",
+            "category": "Men's Health"
+        },
+        {
+            "name": "Disposable Examination Gloves",
+            "description": "Powder-free protective gloves for clinical care",
+            "price": 249,
+            "discount": 5,
+            "rating": "★★★★★",
+            "icon": "🧤",
+            "color": "blue-bg",
+            "category": "Surgical Supplies"
+        },
+        {
+            "name": "Pain Relief Balm",
+            "description": "Soothing topical balm for everyday muscle aches",
+            "price": 119,
+            "rating": "★★★★☆",
+            "icon": "💊",
+            "color": "green-bg",
+            "category": "Medicines"
+        },
+        {
+            "name": "Herbal Sleep Support",
+            "description": "Calming botanical blend for a restful night",
+            "price": 329,
+            "discount": 10,
+            "rating": "★★★★☆",
+            "icon": "🌙",
+            "color": "purple-bg",
+            "category": "Wellness"
+        },
+        {
+            "name": "Nourishing Hand Cream",
+            "description": "Fast-absorbing cream for soft, protected hands",
+            "price": 169,
+            "rating": "★★★★★",
+            "icon": "🧴",
+            "color": "yellow-bg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Smart Body Scale",
+            "description": "Digital scale with weight and body composition tracking",
+            "price": 1299,
+            "discount": 12,
+            "rating": "★★★★☆",
+            "icon": "⚖️",
+            "color": "blue-bg",
+            "category": "Health Devices"
+        },
+        {
+            "name": "Reusable Hot and Cold Pack",
+            "description": "Flexible relief pack for minor swelling and soreness",
+            "price": 229,
+            "rating": "★★★★☆",
+            "icon": "🩹",
+            "color": "pink-bg",
+            "category": "First Aid"
+        },
+        {
+            "name": "Baby Gentle Shampoo",
+            "description": "Tear-free shampoo for delicate baby hair and skin",
+            "price": 189,
+            "rating": "★★★★★",
+            "icon": "🧸",
+            "color": "yellow-bg",
+            "category": "Baby Care"
+        },
+        {
+            "name": "Magnesium Mineral Tablets",
+            "description": "Daily mineral support for muscles and energy",
+            "price": 279,
+            "discount": 8,
+            "rating": "★★★★☆",
+            "icon": "💧",
+            "color": "green-bg",
+            "category": "Nutrition & Supplements"
+        },
+        {
+            "name": "Alcohol-Free Mouthwash",
+            "description": "Fresh breath rinse for everyday oral hygiene",
+            "price": 239,
+            "rating": "★★★★☆",
+            "icon": "🦷",
+            "color": "blue-bg",
+            "category": "Oral Care"
+        },
+        {
+            "name": "Insulin Travel Cooling Case",
+            "description": "Portable temperature protection for insulin storage",
+            "price": 749,
+            "discount": 10,
+            "rating": "★★★★★",
+            "icon": "🧊",
+            "color": "purple-bg",
+            "category": "Diabetes Care"
+        },
+        {
+            "name": "Daily Iron Supplement",
+            "description": "Gentle iron support for women's daily nutrition",
+            "price": 319,
+            "rating": "★★★★☆",
+            "icon": "🌸",
+            "color": "pink-bg",
+            "category": "Women's Health"
+        },
+        {
+            "name": "Performance Electrolyte Mix",
+            "description": "Hydration and electrolyte support for active men",
+            "price": 379,
+            "discount": 5,
+            "rating": "★★★★★",
+            "icon": "⚡",
+            "color": "orange-bg",
+            "category": "Men's Health"
+        },
+        {
+            "name": "Medical Face Masks",
+            "description": "Comfortable disposable masks for clinical protection",
+            "price": 149,
+            "rating": "★★★★☆",
+            "icon": "😷",
+            "color": "blue-bg",
+            "category": "Surgical Supplies"
+        }
+    ]
+}

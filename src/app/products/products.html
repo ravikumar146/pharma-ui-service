@@ -1,0 +1,90 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" [cartCount]="cartService.itemCount()" />
+
+<header class="products-header">
+    <span class="section-kicker">Your health, your way</span>
+    <h1>Browse healthcare products</h1>
+    <p>Find medicines, wellness products, and everyday health essentials.</p>
+</header>
+
+<div class="search-area">
+    <input class="search-box" type="text" [(ngModel)]="searchText" (ngModelChange)="goToFirstPage()"
+        [placeholder]="searchPlaceholder" />
+    <button class="search-button" type="button">Search</button>
+</div>
+
+<main class="shop">
+    <aside class="sidebar">
+        <h3>Categories</h3>
+
+        @for (category of categories; track category.name) {
+        <button type="button" class="filter" [class.active]="selectedCategory === category.name"
+            (click)="selectCategory(category.name)">
+            <span>{{ category.icon }}</span>
+            <span>{{ category.name }}</span>
+        </button>
+        }
+    </aside>
+
+    <section class="catalog">
+        <div class="shop-top">
+            <h2>Featured Products</h2>
+
+            <select [(ngModel)]="selectedSort" (ngModelChange)="goToFirstPage()">
+                @for (option of sortOptions; track option) {
+                <option [value]="option">Sort: {{ option }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="products">
+            @for (product of paginatedProducts; track product.name) {
+            <article class="product">
+                @if (product.discount) {
+                <span class="discount">{{ product.discount }}% OFF</span>
+                }
+
+                <div class="product-image" [ngClass]="product.color">{{ product.icon }}</div>
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <div class="rating">{{ product.rating }}</div>
+
+                <div class="product-bottom">
+                    <div class="price">₹{{ product.price | number }}</div>
+                    @if (getQuantity(product.name) > 0) {
+                    <div class="product-quantity" aria-label="Product quantity">
+                        <button type="button" (click)="removeFromCart(product.name)"
+                            aria-label="Decrease quantity">−</button>
+                        <strong>{{ getQuantity(product.name) }}</strong>
+                        <button type="button" (click)="addToCart(product)" aria-label="Increase quantity">+</button>
+                    </div>
+                    } @else {
+                    <button class="add" type="button" (click)="addToCart(product)">Add +</button>
+                    }
+                </div>
+            </article>
+            }
+
+            @if (filteredProducts.length === 0) {
+            <div class="no-results">
+                <div>🔍</div>
+                <h3>No products found</h3>
+                <p>Try another search or category.</p>
+            </div>
+            }
+        </div>
+
+        @if (totalPages > 1) {
+        <nav class="pagination" aria-label="Product pages">
+            <button type="button" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+            @for (page of pageNumbers; track page) {
+            <button type="button" [class.active]="currentPage === page" (click)="goToPage(page)">
+                {{ page }}
+            </button>
+            }
+            <button type="button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        </nav>
+        }
+    </section>
+</main>
+
+<app-footer />
