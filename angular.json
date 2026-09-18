@@ -40,7 +40,9 @@
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
-              "allowedHosts": []
+              "allowedHosts": [
+                "*.us-central1.run.app"
+              ]
             },
             "ssr": {
               "entry": "src/server.ts"
