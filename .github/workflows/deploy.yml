@@ -1,0 +1,54 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - develop
+
+env:
+  PROJECT_ID: gcloud-website-deploy
+  REGION: us-central1
+  REPOSITORY: gcloud-docker-repo
+  IMAGE: pharma-ui-service
+  SERVICE: pharma-ui-service
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      - name: Setup Google Cloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker
+        run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+
+      - name: Build and Push
+        run: |
+          IMAGE_URL="us-central1-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMAGE}:${GITHUB_SHA}"
+
+          docker build \
+            -t "$IMAGE_URL" \
+            .
+
+          docker push "$IMAGE_URL"
+
+      - name: Deploy Cloud Run
+        run: |
+          IMAGE_URL="us-central1-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMAGE}:${GITHUB_SHA}"
+
+          gcloud run deploy "$SERVICE" \
+            --image "$IMAGE_URL" \
+            --region "$REGION" \
+            --project "$PROJECT_ID" \
+            --platform managed \
+            --allow-unauthenticated
