@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ShopDataResponse } from '../models/shop-data-response.model';
+import { ProductsResponse } from '../models/products-reponse.model';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ShopService {
+export class ProductsService {
     private readonly http = inject(HttpClient);
 
-    getShopData(): Observable<ShopDataResponse> {
-        return this.http.get<ShopDataResponse>('/assets/shop-data.json');
+    getProducts(): Observable<ProductsResponse> {
+        return this.http.get<ProductsResponse>('/assets/products-data.json');
     }
 }

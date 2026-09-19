@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Category } from '../models/category.model';
 import { Product } from '../models/product.model';
-import { ShopService } from '../services/shop.service';
+import { ProductsService } from '../services/products.service';
 import { CartService } from '../services/cart.service';
 import { Footer } from '../footer/footer';
 import { Header } from '../header/header';
@@ -17,7 +17,7 @@ import { BRAND_NAME, NAVIGATION_LINKS } from '../config/app-navigation';
     standalone: true,
 })
 export class Products implements OnInit {
-    private readonly shopService = inject(ShopService);
+    private readonly productsService = inject(ProductsService);
     readonly cartService = inject(CartService);
     private readonly changeDetector = inject(ChangeDetectorRef);
 
@@ -35,7 +35,7 @@ export class Products implements OnInit {
     products: Product[] = [];
 
     ngOnInit(): void {
-        this.shopService.getShopData().subscribe(({ categories, products }) => {
+        this.productsService.getProducts().subscribe(({ categories, products }) => {
             this.categories = [{ name: 'All Products', icon: '' }, ...categories];
             this.products = products;
             this.changeDetector.markForCheck();

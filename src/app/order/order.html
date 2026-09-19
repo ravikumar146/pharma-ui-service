@@ -1,0 +1,197 @@
+<app-header [brandName]="brandName" [navigationLinks]="navigationLinks" [cartCount]="cartService.itemCount()" />
+
+<main class="confirmation-page">
+    <div class="confirmation-heading">
+        <span class="eyebrow">Order confirmed</span>
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Thank you for your order!</h1>
+
+        <p>
+            Your order has been successfully placed. We’ll keep you updated
+            about your delivery.
+        </p>
+
+        <div class="order-number">
+            Order #MED-951036
+        </div>
+    </div>
+
+
+    <div class="confirmation-layout">
+
+        <!-- Main content -->
+        <section class="confirmation-card">
+
+            <div class="card-heading">
+                <div>
+                    <span class="eyebrow">Delivery status</span>
+                    <h2>Track your order</h2>
+                </div>
+
+                <span class="status-badge">
+                    Confirmed
+                </span>
+            </div>
+
+
+            <!-- Progress -->
+            <div class="order-progress">
+
+                <div class="progress-step active">
+                    <div class="step-icon">✓</div>
+                    <div>
+                        <strong>Order confirmed</strong>
+                        <small>Your order has been received</small>
+                    </div>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <div class="step-icon">2</div>
+                    <div>
+                        <strong>Preparing order</strong>
+                        <small>Your medicines are being prepared</small>
+                    </div>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <div class="step-icon">3</div>
+                    <div>
+                        <strong>Out for delivery</strong>
+                        <small>Your order is on its way</small>
+                    </div>
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="progress-step">
+                    <div class="step-icon">4</div>
+                    <div>
+                        <strong>Delivered</strong>
+                        <small>Your order has arrived</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Delivery date -->
+            <div class="delivery-banner">
+                <div class="delivery-icon">🚚</div>
+
+                <div>
+                    <span>Estimated delivery</span>
+                    <strong>22 Sept 2026</strong>
+                </div>
+            </div>
+
+
+            <!-- Items -->
+            <div class="section-divider"></div>
+
+            <div class="card-heading compact">
+                <div>
+                    <span class="eyebrow">Your order</span>
+                    <h2>Items ordered</h2>
+                </div>
+
+                <span class="item-count">1 item</span>
+            </div>
+
+            <div class="product-row">
+
+                <div class="product-icon">
+                    💊
+                </div>
+
+                <div class="product-info">
+                    <strong>Moisturizing Lotion</strong>
+                    <span>Quantity: 5</span>
+                </div>
+
+                <div class="product-price">
+                    <span>₹249 each</span>
+                    <strong>₹1,245</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Payment -->
+            <div class="section-divider"></div>
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="eyebrow">Payment method</span>
+                    <strong>Cash on Delivery</strong>
+                </div>
+
+                <div class="info-item">
+                    <span class="eyebrow">Delivery</span>
+                    <strong>Free delivery</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Summary -->
+        <aside class="order-card">
+
+            <span class="eyebrow">Order total</span>
+
+            <h2>Summary</h2>
+
+            <div class="order-row">
+                <span>Subtotal</span>
+                <strong>₹1,245</strong>
+            </div>
+
+            <div class="order-row savings">
+                <span>Coupon savings</span>
+                <strong>-₹50</strong>
+            </div>
+
+            <div class="order-row">
+                <span>Delivery</span>
+                <strong class="free">FREE</strong>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="order-total">
+                <span>Total paid</span>
+                <strong>₹1,195</strong>
+            </div>
+
+            <div class="secure-note">
+                <span>🔒</span>
+                <p>Your payment information is protected.</p>
+            </div>
+
+            <div class="summary-actions">
+                <a routerLink="/products" class="primary-button">
+                    Continue shopping
+                    <span>→</span>
+                </a>
+
+                <a routerLink="/" class="secondary-button">
+                    Back to home
+                </a>
+            </div>
+
+        </aside>
+
+    </div>
+</main>
+
+<app-footer />

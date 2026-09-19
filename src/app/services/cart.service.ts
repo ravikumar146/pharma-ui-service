@@ -64,4 +64,9 @@ export class CartService {
                 .filter((item) => item.quantity > 0),
         );
     }
+
+    clear(): void {
+        this.cartItems.set([]);
+        this.clearCoupon();
+    }
 }
