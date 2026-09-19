@@ -9,7 +9,7 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run build:dev
+RUN npm run build:prod
 
 
 # Runtime stage
@@ -17,7 +17,7 @@ FROM node:22-alpine AS runtime
 
 WORKDIR /app
 
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 ENV PORT=4200
 
 COPY --from=build /app/dist/pharma-ui-service ./dist/pharma-ui-service
