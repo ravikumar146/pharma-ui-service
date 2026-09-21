@@ -17,7 +17,7 @@ export class Header {
         const routes: Record<string, string> = {
             Home: '/',
             Landing: '/',
-            Products: '/products',
+            Medicines: '/products',
             Offers: '/offers',
             Login: '/login',
             'Sign up': '/signup',
