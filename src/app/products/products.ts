@@ -40,7 +40,10 @@ export class Products implements OnInit {
             categories: this.productsService.getCategories(),
             products: this.productsService.getProducts()
         }).subscribe(({ categories, products }) => {
-            this.categories = [{ categoryName: 'All Products', icon: '' }, ...categories];
+            this.categories = [{
+                categoryName: 'All Products', icon: '',
+                categoryDomain: 'PHARMA'
+            }, ...categories];
             this.products = products;
             this.changeDetector.markForCheck();
         });
