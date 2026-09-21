@@ -30,8 +30,8 @@ export class Cart implements OnInit {
     couponError = false;
 
     ngOnInit(): void {
-        this.offersService.getOffers().subscribe(({ coupons }) => {
-            this.coupons = coupons;
+        this.offersService.getOffers().subscribe(response => {
+            this.coupons = response;
             this.changeDetector.markForCheck();
         });
     }
