@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OffersResponse } from '../models/offers-response.model';
+import { Coupon } from '../models/coupon.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
@@ -9,7 +10,7 @@ import { OffersResponse } from '../models/offers-response.model';
 export class OffersService {
     private readonly http = inject(HttpClient);
 
-    getOffers(): Observable<OffersResponse> {
-        return this.http.get<OffersResponse>('/assets/offers.json');
+    getOffers(): Observable<Coupon[]> {
+        return this.http.get<Coupon[]>(`${environment.couponServiceUrl}/api/coupons/list`);
     }
 }

@@ -26,7 +26,7 @@ export class Offers implements OnInit {
     isLoading = true;
 
     ngOnInit(): void {
-        this.offersService.getOffers().subscribe(({ coupons }) => {
+        this.offersService.getOffers().subscribe(coupons => {
             this.coupons = coupons;
             this.isLoading = false;
             this.changeDetector.markForCheck();
