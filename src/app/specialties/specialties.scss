@@ -128,6 +128,7 @@
     color: var(--primary-dark);
     font-size: 13px;
     font-weight: 800;
+    cursor: pointer;
     box-shadow: 0 5px 14px rgba(23, 59, 77, 0.08);
     transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
@@ -158,6 +159,7 @@
     background: transparent;
     color: var(--primary-dark);
     font-weight: 700;
+    cursor: pointer;
 }
 
 .consult-button {

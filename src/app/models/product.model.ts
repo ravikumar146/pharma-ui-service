@@ -6,5 +6,5 @@ export interface Product {
     rating: string;
     icon: string;
     color: string;
-    category: string;
+    categoryName: string;
 }

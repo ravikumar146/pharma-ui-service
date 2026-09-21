@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductsResponse } from '../models/products-reponse.model';
+import { Category } from '../models/category.model';
+import { Product } from '../models/product.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
@@ -9,7 +11,11 @@ import { ProductsResponse } from '../models/products-reponse.model';
 export class ProductsService {
     private readonly http = inject(HttpClient);
 
-    getProducts(): Observable<ProductsResponse> {
-        return this.http.get<ProductsResponse>('/assets/products-data.json');
+    getCategories(): Observable<Category[]> {
+        return this.http.get<Category[]>(`${environment.categoryServiceUrl}/categories/list`);
+    }
+
+    getProducts(): Observable<Product[]> {
+        return this.http.get<Product[]>('/assets/products-data.json');
     }
 }

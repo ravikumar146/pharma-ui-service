@@ -8,6 +8,7 @@ import { CartService } from '../services/cart.service';
 import { Footer } from '../footer/footer';
 import { Header } from '../header/header';
 import { BRAND_NAME, NAVIGATION_LINKS } from '../config/app-navigation';
+import { forkJoin } from 'rxjs';
 
 @Component({
     selector: 'app-products',
@@ -35,8 +36,11 @@ export class Products implements OnInit {
     products: Product[] = [];
 
     ngOnInit(): void {
-        this.productsService.getProducts().subscribe(({ categories, products }) => {
-            this.categories = [{ name: 'All Products', icon: '' }, ...categories];
+        forkJoin({
+            categories: this.productsService.getCategories(),
+            products: this.productsService.getProducts()
+        }).subscribe(({ categories, products }) => {
+            this.categories = [{ categoryName: 'All Products', icon: '' }, ...categories];
             this.products = products;
             this.changeDetector.markForCheck();
         });
@@ -50,7 +54,7 @@ export class Products implements OnInit {
                 product.name.toLowerCase().includes(query) ||
                 product.description.toLowerCase().includes(query);
             const matchesCategory =
-                this.selectedCategory === 'All Products' || product.category === this.selectedCategory;
+                this.selectedCategory === 'All Products' || product.categoryName === this.selectedCategory;
             return matchesQuery && matchesCategory;
         });
 

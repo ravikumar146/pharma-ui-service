@@ -16,11 +16,11 @@
     <aside class="sidebar">
         <h3>Categories</h3>
 
-        @for (category of categories; track category.name) {
-        <button type="button" class="filter" [class.active]="selectedCategory === category.name"
-            (click)="selectCategory(category.name)">
+        @for (category of categories; track category.categoryName) {
+        <button type="button" class="filter" [class.active]="selectedCategory === category.categoryName"
+            (click)="selectCategory(category.categoryName)">
             <span>{{ category.icon }}</span>
-            <span>{{ category.name }}</span>
+            <span>{{ category.categoryName }}</span>
         </button>
         }
     </aside>
