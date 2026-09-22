@@ -11,6 +11,6 @@ export class OffersService {
     private readonly http = inject(HttpClient);
 
     getOffers(): Observable<Coupon[]> {
-        return this.http.get<Coupon[]>(`${environment.couponServiceUrl}/coupons/list`);
+        return this.http.get<Coupon[]>(`${environment.couponServiceUrl}/list`);
     }
 }

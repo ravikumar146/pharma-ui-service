@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OrderService } from '../services/order.service';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ import { CartService } from '../services/cart.service';
   styleUrl: './order.scss',
   templateUrl: './order.html',
 })
-export class Order {
+export class Order implements OnInit {
   private readonly orderService = inject(OrderService);
   readonly cartService = inject(CartService);
   readonly brandName = BRAND_NAME;
@@ -46,4 +46,10 @@ export class Order {
         return 0;
     }
   });
+
+  ngOnInit(): void {
+    this.orderService.getPaymentInfo().subscribe(data => {
+      console.log('Payment data:', data);
+    });
+  }
 }

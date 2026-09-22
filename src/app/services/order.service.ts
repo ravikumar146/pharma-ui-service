@@ -2,18 +2,27 @@ import { Injectable, signal } from '@angular/core';
 
 import { CartService } from './cart.service';
 import { Order, OrderItem } from '../models/order.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class OrderService {
     private readonly currentOrder = signal<Order | null>(null);
-
+    private paymentInfo = new BehaviorSubject<any>(null);
     readonly order = this.currentOrder.asReadonly();
 
     constructor(
         private readonly cartService: CartService,
     ) { }
+
+    setPaymentInfo(data: any): void {
+        this.paymentInfo.next(data);
+    }
+
+    getPaymentInfo(): Observable<any> {
+        return this.paymentInfo.asObservable();
+    }
 
     createOrder(paymentMethod: string): Order {
         const items: OrderItem[] = this.cartService

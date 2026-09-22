@@ -6,7 +6,7 @@ import { Coupon } from '../models/coupon.model';
 import { OffersService } from '../services/offers.service';
 import { Footer } from '../footer/footer';
 import { Header } from '../header/header';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { BRAND_NAME, NAVIGATION_LINKS } from '../config/app-navigation';
 
 @Component({
@@ -20,6 +20,7 @@ export class Cart implements OnInit {
     readonly cartService = inject(CartService);
     private readonly offersService = inject(OffersService);
     private readonly changeDetector = inject(ChangeDetectorRef);
+    private readonly router = inject(Router);
     readonly brandName = BRAND_NAME;
     readonly navigationLinks = NAVIGATION_LINKS;
 
@@ -85,5 +86,9 @@ export class Cart implements OnInit {
             this.couponMessage = 'Coupon removed because the order no longer meets its minimum.';
             this.couponError = true;
         }
+    }
+
+    proceedToPayment(): void {
+        this.router.navigate(['/payment']);
     }
 }

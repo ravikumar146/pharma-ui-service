@@ -99,7 +99,8 @@
                 }
                 <div class="summary-row delivery-row"><span>Delivery</span><strong>Free</strong></div>
                 <div class="summary-total"><span>Total to pay</span><strong>₹{{ payableTotal | number }}</strong></div>
-                <a class="checkout-button" routerLink="/payment">Proceed to checkout <span>→</span></a>
+                <button type="button" class="checkout-button" (click)="proceedToPayment()"
+                    [disabled]="payableTotal <= 0"> Proceed to checkout <span>→</span> </button>
                 <p class="secure-note">🔒 Secure checkout · No hidden fees</p>
             </section>
         </aside>
