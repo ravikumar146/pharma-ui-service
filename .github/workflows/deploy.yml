@@ -9,8 +9,8 @@ env:
   PROJECT_ID: gcloud-website-deploy
   REGION: us-central1
   REPOSITORY: gcloud-docker-repo
-  IMAGE: pharmaui
-  SERVICE: pharmaui
+  IMAGE: medicareplus
+  SERVICE: medicareplus
 
 jobs:
   deploy:
