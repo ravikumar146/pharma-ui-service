@@ -9,8 +9,8 @@ env:
   PROJECT_ID: gcloud-website-deploy
   REGION: us-central1
   REPOSITORY: gcloud-docker-repo
-  IMAGE: pharma-ui-service
-  SERVICE: pharma-ui-service
+  IMAGE: pharmaui
+  SERVICE: pharmaui
 
 jobs:
   deploy:
