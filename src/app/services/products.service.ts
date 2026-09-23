@@ -12,7 +12,7 @@ export class ProductsService {
     private readonly http = inject(HttpClient);
 
     getCategories(): Observable<Category[]> {
-        return this.http.get<Category[]>(`${environment.categoryServiceUrl}/list`);
+        return this.http.get<Category[]>(`${environment.categoryServiceUrl}/${environment.appName}/list`);
     }
 
     getProducts(): Observable<Product[]> {
