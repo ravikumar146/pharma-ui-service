@@ -10,9 +10,11 @@ import { environment } from '../../environments/environment';
 })
 export class ProductsService {
     private readonly http = inject(HttpClient);
+    appName: string | undefined;
 
     getCategories(): Observable<Category[]> {
-        return this.http.get<Category[]>(`${environment.categoryServiceUrl}/${environment.appName}/list`);
+        this.appName = environment.appName;
+        return this.http.get<Category[]>(`${environment.categoryServiceUrl}/list/${this.appName}`);
     }
 
     getProducts(): Observable<Product[]> {
